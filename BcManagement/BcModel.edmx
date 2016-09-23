@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="WinDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AccFail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ScanAccID" Type="bigint" />
+          <Property Name="TimeFail" Type="datetime" />
+        </EntityType>
+        <EntityType Name="AccScanInUse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="ScanAccountID" Type="bigint" />
+        </EntityType>
+        <EntityType Name="LoginTrace">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserID" Type="bigint" />
+          <Property Name="TimeLogin" Type="datetime" />
+          <Property Name="IpAddress" Type="varchar" MaxLength="50" />
+          <Property Name="MacAddress" Type="varchar" MaxLength="50" />
+          <Property Name="Hostname" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ScanAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ServerType" Type="tinyint" Nullable="false" />
+          <Property Name="IsBlock" Type="bit" Nullable="false" />
+          <Property Name="IsFree" Type="bit" Nullable="false" />
+          <Property Name="PassChangeVersion" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemConfig">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyConfig" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ValueConfig" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="tinyint" Nullable="false" />
+          <Property Name="RouteType" Type="tinyint" />
+          <Property Name="AccType" Type="tinyint" />
+        </EntityType>
+        <Association Name="FK_AccFail_ScanAccount">
+          <End Role="ScanAccount" Type="Self.ScanAccount" Multiplicity="0..1" />
+          <End Role="AccFail" Type="Self.AccFail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanAccount">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccFail">
+              <PropertyRef Name="ScanAccID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccScanInUse_ScanAccount">
+          <End Role="ScanAccount" Type="Self.ScanAccount" Multiplicity="0..1" />
+          <End Role="AccScanInUse" Type="Self.AccScanInUse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanAccount">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccScanInUse">
+              <PropertyRef Name="ScanAccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccScanInUse_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="AccScanInUse" Type="Self.AccScanInUse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccScanInUse">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginTrace_User">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="LoginTrace" Type="Self.LoginTrace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LoginTrace">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="WinDbModelStoreContainer">
+          <EntitySet Name="AccFail" EntityType="Self.AccFail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccScanInUse" EntityType="Self.AccScanInUse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LoginTrace" EntityType="Self.LoginTrace" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScanAccount" EntityType="Self.ScanAccount" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SystemConfig" EntityType="Self.SystemConfig" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AccFail_ScanAccount" Association="Self.FK_AccFail_ScanAccount">
+            <End Role="ScanAccount" EntitySet="ScanAccount" />
+            <End Role="AccFail" EntitySet="AccFail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccScanInUse_ScanAccount" Association="Self.FK_AccScanInUse_ScanAccount">
+            <End Role="ScanAccount" EntitySet="ScanAccount" />
+            <End Role="AccScanInUse" EntitySet="AccScanInUse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccScanInUse_User" Association="Self.FK_AccScanInUse_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="AccScanInUse" EntitySet="AccScanInUse" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginTrace_User" Association="Self.FK_LoginTrace_User">
+            <End Role="User" EntitySet="User" />
+            <End Role="LoginTrace" EntitySet="LoginTrace" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="WinDbModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="WinDbEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="AccFails" EntityType="WinDbModel.AccFail" />
+          <EntitySet Name="AccScanInUses" EntityType="WinDbModel.AccScanInUse" />
+          <EntitySet Name="LoginTraces" EntityType="WinDbModel.LoginTrace" />
+          <EntitySet Name="ScanAccounts" EntityType="WinDbModel.ScanAccount" />
+          <EntitySet Name="Users" EntityType="WinDbModel.User" />
+          <AssociationSet Name="FK_AccFail_ScanAccount" Association="WinDbModel.FK_AccFail_ScanAccount">
+            <End Role="ScanAccount" EntitySet="ScanAccounts" />
+            <End Role="AccFail" EntitySet="AccFails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccScanInUse_ScanAccount" Association="WinDbModel.FK_AccScanInUse_ScanAccount">
+            <End Role="ScanAccount" EntitySet="ScanAccounts" />
+            <End Role="AccScanInUse" EntitySet="AccScanInUses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AccScanInUse_User" Association="WinDbModel.FK_AccScanInUse_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="AccScanInUse" EntitySet="AccScanInUses" />
+          </AssociationSet>
+          <AssociationSet Name="FK_LoginTrace_User" Association="WinDbModel.FK_LoginTrace_User">
+            <End Role="User" EntitySet="Users" />
+            <End Role="LoginTrace" EntitySet="LoginTraces" />
+          </AssociationSet>
+          <EntitySet Name="SystemConfigs" EntityType="WinDbModel.SystemConfig" />
+        </EntityContainer>
+        <EntityType Name="AccFail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="ScanAccID" />
+          <Property Type="DateTime" Name="TimeFail" Precision="3" />
+          <NavigationProperty Name="ScanAccount" Relationship="WinDbModel.FK_AccFail_ScanAccount" FromRole="AccFail" ToRole="ScanAccount" />
+        </EntityType>
+        <EntityType Name="AccScanInUse">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="UserID" />
+          <Property Type="Int64" Name="ScanAccountID" />
+          <NavigationProperty Name="ScanAccount" Relationship="WinDbModel.FK_AccScanInUse_ScanAccount" FromRole="AccScanInUse" ToRole="ScanAccount" />
+          <NavigationProperty Name="User" Relationship="WinDbModel.FK_AccScanInUse_User" FromRole="AccScanInUse" ToRole="User" />
+        </EntityType>
+        <EntityType Name="LoginTrace">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int64" Name="UserID" />
+          <Property Type="DateTime" Name="TimeLogin" Precision="3" />
+          <Property Type="String" Name="IpAddress" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="MacAddress" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Hostname" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="WinDbModel.FK_LoginTrace_User" FromRole="LoginTrace" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ScanAccount">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="ServerType" Nullable="false" />
+          <Property Type="Boolean" Name="IsBlock" Nullable="false" />
+          <Property Type="Boolean" Name="IsFree" Nullable="false" />
+          <NavigationProperty Name="AccFails" Relationship="WinDbModel.FK_AccFail_ScanAccount" FromRole="ScanAccount" ToRole="AccFail" />
+          <NavigationProperty Name="AccScanInUses" Relationship="WinDbModel.FK_AccScanInUse_ScanAccount" FromRole="ScanAccount" ToRole="AccScanInUse" />
+          <Property Name="PassChangeVersion" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int64" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Username" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Type="Byte" Name="Type" Nullable="false" />
+          <NavigationProperty Name="AccScanInUses" Relationship="WinDbModel.FK_AccScanInUse_User" FromRole="User" ToRole="AccScanInUse" />
+          <NavigationProperty Name="LoginTraces" Relationship="WinDbModel.FK_LoginTrace_User" FromRole="User" ToRole="LoginTrace" />
+          <Property Type="Byte" Name="RouteType" />
+          <Property Type="Byte" Name="AccType" />
+        </EntityType>
+        <Association Name="FK_AccFail_ScanAccount">
+          <End Type="WinDbModel.ScanAccount" Role="ScanAccount" Multiplicity="0..1" />
+          <End Type="WinDbModel.AccFail" Role="AccFail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanAccount">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccFail">
+              <PropertyRef Name="ScanAccID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccScanInUse_ScanAccount">
+          <End Type="WinDbModel.ScanAccount" Role="ScanAccount" Multiplicity="0..1" />
+          <End Type="WinDbModel.AccScanInUse" Role="AccScanInUse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ScanAccount">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccScanInUse">
+              <PropertyRef Name="ScanAccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AccScanInUse_User">
+          <End Type="WinDbModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="WinDbModel.AccScanInUse" Role="AccScanInUse" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="AccScanInUse">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_LoginTrace_User">
+          <End Type="WinDbModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="WinDbModel.LoginTrace" Role="LoginTrace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LoginTrace">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SystemConfig">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="KeyConfig" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Type="String" Name="ValueConfig" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="WinDbModelStoreContainer" CdmEntityContainer="WinDbEntities">
+          <EntitySetMapping Name="AccFails">
+            <EntityTypeMapping TypeName="WinDbModel.AccFail">
+              <MappingFragment StoreEntitySet="AccFail">
+                <ScalarProperty Name="TimeFail" ColumnName="TimeFail" />
+                <ScalarProperty Name="ScanAccID" ColumnName="ScanAccID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccScanInUses">
+            <EntityTypeMapping TypeName="WinDbModel.AccScanInUse">
+              <MappingFragment StoreEntitySet="AccScanInUse">
+                <ScalarProperty Name="ScanAccountID" ColumnName="ScanAccountID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LoginTraces">
+            <EntityTypeMapping TypeName="WinDbModel.LoginTrace">
+              <MappingFragment StoreEntitySet="LoginTrace">
+                <ScalarProperty Name="Hostname" ColumnName="Hostname" />
+                <ScalarProperty Name="MacAddress" ColumnName="MacAddress" />
+                <ScalarProperty Name="IpAddress" ColumnName="IpAddress" />
+                <ScalarProperty Name="TimeLogin" ColumnName="TimeLogin" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScanAccounts">
+            <EntityTypeMapping TypeName="WinDbModel.ScanAccount">
+              <MappingFragment StoreEntitySet="ScanAccount">
+                <ScalarProperty Name="PassChangeVersion" ColumnName="PassChangeVersion" />
+                <ScalarProperty Name="IsFree" ColumnName="IsFree" />
+                <ScalarProperty Name="IsBlock" ColumnName="IsBlock" />
+                <ScalarProperty Name="ServerType" ColumnName="ServerType" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="WinDbModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="AccType" ColumnName="AccType" />
+                <ScalarProperty Name="RouteType" ColumnName="RouteType" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemConfigs">
+            <EntityTypeMapping TypeName="WinDbModel.SystemConfig">
+              <MappingFragment StoreEntitySet="SystemConfig">
+                <ScalarProperty Name="ValueConfig" ColumnName="ValueConfig" />
+                <ScalarProperty Name="KeyConfig" ColumnName="KeyConfig" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams />
+  </Designer>
+</edmx:Edmx>

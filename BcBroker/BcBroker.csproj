@@ -1,0 +1,252 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A1A8735C-5225-48B9-90E2-B8EF9C7C4A86}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BcBroker</RootNamespace>
+    <AssemblyName>BcBroker</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Sparkline.v14.2.Core, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationClient" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BrokerData.cs" />
+    <Compile Include="ConfigModel.cs" />
+    <Compile Include="frmIbetSboBrokerHigher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIbetSboBrokerHigher.Designer.cs">
+      <DependentUpon>frmIbetSboBrokerHigher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIbetSboBroker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIbetSboBroker.Designer.cs">
+      <DependentUpon>frmIbetSboBroker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInfoAcc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInfoAcc.Designer.cs">
+      <DependentUpon>frmInfoAcc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmStatement.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmStatement.Designer.cs">
+      <DependentUpon>frmStatement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings1.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BrokerHigherControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\BrokerHigherControl.Designer.cs">
+      <DependentUpon>BrokerHigherControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\BrokerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\BrokerControl.Designer.cs">
+      <DependentUpon>BrokerControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="frmIbetSboBrokerHigher.resx">
+      <DependentUpon>frmIbetSboBrokerHigher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIbetSboBroker.resx">
+      <DependentUpon>frmIbetSboBroker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInfoAcc.resx">
+      <DependentUpon>frmInfoAcc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmStatement.resx">
+      <DependentUpon>frmStatement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UserControls\BrokerHigherControl.resx">
+      <DependentUpon>BrokerHigherControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\BrokerControl.resx">
+      <DependentUpon>BrokerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Settings1.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BCWin.Broker\BCWin.Broker.csproj">
+      <Project>{15cd3226-758f-4c27-829a-9d6e76965252}</Project>
+      <Name>BCWin.Broker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Common\BcWin.Common.csproj">
+      <Project>{761F904B-3154-42ED-B371-BC3D5C4A9A09}</Project>
+      <Name>BcWin.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Contract\BcWin.Contract.csproj">
+      <Project>{abf3616a-107c-4215-8bac-b5edd0544b8c}</Project>
+      <Name>BcWin.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Core\BcWin.Core.csproj">
+      <Project>{c780f7b7-657c-4b61-be51-71e5958a9bc4}</Project>
+      <Name>BcWin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.Ibet\BCWin.Engine.Ibet.csproj">
+      <Project>{48ef105e-e688-4604-b97d-0e654dd7a7ba}</Project>
+      <Name>BCWin.Engine.Ibet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.Sbo\BCWin.Engine.Sbo.csproj">
+      <Project>{3b8f2616-e398-46ec-b92a-a3a6dbab64ab}</Project>
+      <Name>BCWin.Engine.Sbo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Metadata\BCWin.Metadata.csproj">
+      <Project>{606D3A9C-A32B-49C6-94F8-10670906483E}</Project>
+      <Name>BCWin.Metadata</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Processor\BcWin.Processor.csproj">
+      <Project>{F55FBC16-1DA5-4059-81DA-94A5EBCD0A14}</Project>
+      <Name>BcWin.Processor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PauseBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PlayBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\StopBtn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ProcessBar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RefreshBtn.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

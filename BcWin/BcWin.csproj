@@ -1,0 +1,384 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{90AA1434-A601-49CA-9C21-5EB006E3D292}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BcWin</RootNamespace>
+    <AssemblyName>BcWin</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>money.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.Utils.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraBars.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraEditors.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DevExpress.XtraGrid.v14.2, Version=14.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Jint">
+      <HintPath>..\packages\Jint.2.5.0\lib\portable-net40+sl50+win+wpa81+wp80\Jint.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=1.2.13.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ClientData.cs" />
+    <Compile Include="frmCrossBet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCrossBet.Designer.cs">
+      <DependentUpon>frmCrossBet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainPinaIsn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainPinaIsn.Designer.cs">
+      <DependentUpon>frmMainPinaIsn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLoginFull.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLoginFull.Designer.cs">
+      <DependentUpon>frmLoginFull.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainIbetSbo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainIbetSbo.Designer.cs">
+      <DependentUpon>frmMainIbetSbo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainSboPina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainSboPina.Designer.cs">
+      <DependentUpon>frmMainSboPina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="UICustom\UiCustom.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UserControls\PinaIsnManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\PinaIsnManagement.Designer.cs">
+      <DependentUpon>PinaIsnManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\SboPinaManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\SboPinaManagement.Designer.cs">
+      <DependentUpon>SboPinaManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\IbetSboManagement.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\IbetSboManagement.Designer.cs">
+      <DependentUpon>IbetSboManagement.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\EngineHelper.cs" />
+    <Compile Include="Utils\FontHelper.cs" />
+    <EmbeddedResource Include="frmCrossBet.resx">
+      <DependentUpon>frmCrossBet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainPinaIsn.resx">
+      <DependentUpon>frmMainPinaIsn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLoginFull.resx">
+      <DependentUpon>frmLoginFull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainIbetSbo.resx">
+      <DependentUpon>frmMainIbetSbo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainSboPina.resx">
+      <DependentUpon>frmMainSboPina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\PinaIsnManagement.resx">
+      <DependentUpon>PinaIsnManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\SboPinaManagement.resx">
+      <DependentUpon>SboPinaManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\IbetSboManagement.resx">
+      <DependentUpon>IbetSboManagement.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BcBetRun\BcBetRun.csproj">
+      <Project>{caf7e4e4-525c-4861-a45c-75d9f2cfcf06}</Project>
+      <Name>BcBetRun</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcBroker\BcBroker.csproj">
+      <Project>{A1A8735C-5225-48B9-90E2-B8EF9C7C4A86}</Project>
+      <Name>BcBroker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Broker\BCWin.Broker.csproj">
+      <Project>{15cd3226-758f-4c27-829a-9d6e76965252}</Project>
+      <Name>BCWin.Broker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Captcha\BcWin.Captcha.csproj">
+      <Project>{5787054e-b955-4c5f-b072-e86170feb8be}</Project>
+      <Name>BcWin.Captcha</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Common\BcWin.Common.csproj">
+      <Project>{761f904b-3154-42ed-b371-bc3d5c4a9a09}</Project>
+      <Name>BcWin.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Contract\BcWin.Contract.csproj">
+      <Project>{ABF3616A-107C-4215-8BAC-B5EDD0544B8C}</Project>
+      <Name>BcWin.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Core\BcWin.Core.csproj">
+      <Project>{c780f7b7-657c-4b61-be51-71e5958a9bc4}</Project>
+      <Name>BcWin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.Ibet\BCWin.Engine.Ibet.csproj">
+      <Project>{48EF105E-E688-4604-B97D-0E654DD7A7BA}</Project>
+      <Name>BCWin.Engine.Ibet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.Isn\BCWin.Engine.Isn.csproj">
+      <Project>{fde45ba5-871e-45eb-9fdb-dc04869276d7}</Project>
+      <Name>BCWin.Engine.Isn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.PinnacleSports2\BCWin.Engine.PinnacleSports2.csproj">
+      <Project>{48b0bcf0-1f68-426b-b175-597b37863b84}</Project>
+      <Name>BCWin.Engine.PinnacleSports2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.PinnacleSports\BCWin.Engine.PinnacleSports.csproj">
+      <Project>{4867b295-6874-47b6-a221-ff18567b474a}</Project>
+      <Name>BCWin.Engine.PinnacleSports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.Sbo\BCWin.Engine.Sbo.csproj">
+      <Project>{3B8F2616-E398-46EC-B92A-A3A6DBAB64AB}</Project>
+      <Name>BCWin.Engine.Sbo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Metadata\BCWin.Metadata.csproj">
+      <Project>{606d3a9c-a32b-49c6-94f8-10670906483e}</Project>
+      <Name>BCWin.Metadata</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Processor\BcWin.Processor.csproj">
+      <Project>{f55fbc16-1da5-4059-81da-94a5ebcd0a14}</Project>
+      <Name>BcWin.Processor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apply.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Apply1.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Go.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Pause.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\stopbtn.png" />
+    <None Include="Resources\refreshbtn.png" />
+    <None Include="Resources\processbar.gif" />
+    <None Include="Resources\playbtn.png" />
+    <None Include="Resources\pausebtn.png" />
+    <None Include="Resources\StopStatus.png" />
+    <None Include="Resources\StartStatus.png" />
+    <None Include="Resources\XSmallIcon.png" />
+    <None Include="Resources\Xicon.png" />
+    <None Include="Resources\scanIcon.png" />
+    <None Include="Resources\Stop-icon.png" />
+    <None Include="Resources\Play-icon.png" />
+    <None Include="Resources\Pause-icon.png" />
+    <None Include="Resources\Refresh.png" />
+    <None Include="Resources\Log-Out-icon.png" />
+    <None Include="Resources\LogOff.png" />
+    <None Include="Resources\Forward.png" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\IMG_1007.JPG" />
+    <None Include="Resources\Key_32x32.png" />
+    <None Include="Resources\Key_24x24.png" />
+    <None Include="Resources\bk.jpg" />
+    <None Include="Resources\football-background.jpg" />
+    <None Include="Resources\betIcon.png" />
+    <Content Include="money.ico" />
+    <None Include="Resources\100-billion-of-climate-finance.png" />
+    <Content Include="Resources\football.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F55FBC16-1DA5-4059-81DA-94A5EBCD0A14}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BcWin.Processor</RootNamespace>
+    <AssemblyName>BcWin.Processor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.2.0.3\lib\net40-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.mshtml, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Noesis.Javascript">
+      <HintPath>..\Lib\Noesis.Javascript.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BaseProcessor.cs" />
+    <Compile Include="IbetSboCross.cs" />
+    <Compile Include="PiSboProcessor2.cs" />
+    <Compile Include="PiIsnProcessor.cs" />
+    <Compile Include="Process.cs" />
+    <Compile Include="RealConfig.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="CoreProcessor.cs" />
+    <Compile Include="Interface\IProcessor.cs" />
+    <Compile Include="Properties\Annotations.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="IbetSboProcessor.cs" />
+    <Compile Include="ScanDriver\PiSboDriver.cs" />
+    <Compile Include="ScanDriver\IbetSboDriver.cs" />
+    <Compile Include="SelfInfo.cs" />
+    <Compile Include="Service\ServerCallback.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BcWin.Common\BcWin.Common.csproj">
+      <Project>{761f904b-3154-42ed-b371-bc3d5c4a9a09}</Project>
+      <Name>BcWin.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Contract\BcWin.Contract.csproj">
+      <Project>{abf3616a-107c-4215-8bac-b5edd0544b8c}</Project>
+      <Name>BcWin.Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BcWin.Core\BcWin.Core.csproj">
+      <Project>{c780f7b7-657c-4b61-be51-71e5958a9bc4}</Project>
+      <Name>BcWin.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.Ibet\BCWin.Engine.Ibet.csproj">
+      <Project>{48EF105E-E688-4604-B97D-0E654DD7A7BA}</Project>
+      <Name>BCWin.Engine.Ibet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.Isn\BCWin.Engine.Isn.csproj">
+      <Project>{fde45ba5-871e-45eb-9fdb-dc04869276d7}</Project>
+      <Name>BCWin.Engine.Isn</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.PinnacleSports2\BCWin.Engine.PinnacleSports2.csproj">
+      <Project>{48b0bcf0-1f68-426b-b175-597b37863b84}</Project>
+      <Name>BCWin.Engine.PinnacleSports2</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.PinnacleSports\BCWin.Engine.PinnacleSports.csproj">
+      <Project>{4867b295-6874-47b6-a221-ff18567b474a}</Project>
+      <Name>BCWin.Engine.PinnacleSports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Engine.Sbo\BCWin.Engine.Sbo.csproj">
+      <Project>{3b8f2616-e398-46ec-b92a-a3a6dbab64ab}</Project>
+      <Name>BCWin.Engine.Sbo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BCWin.Metadata\BCWin.Metadata.csproj">
+      <Project>{606D3A9C-A32B-49C6-94F8-10670906483E}</Project>
+      <Name>BCWin.Metadata</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\IsnServers.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\PiServers.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\LeaguesComparisionSettings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\MatchsFilterDenyKeywords.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\IbetServers.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\SboServers.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Config\LeaguesFilterDenyKeywords.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\LoginIbet.htm" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

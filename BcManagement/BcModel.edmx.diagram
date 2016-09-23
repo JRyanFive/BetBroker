@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="cebefd02c5db4a4badcdd086f2c9007a" Name="Diagram1" ZoomLevel="85">
+        <EntityTypeShape EntityType="WinDbModel.AccFail" Width="1.5" PointX="2.5437672671600091" PointY="16.42189582456923" />
+        <EntityTypeShape EntityType="WinDbModel.AccScanInUse" Width="1.5" PointX="9.6797014184667276" PointY="10.274634023324882" />
+        <EntityTypeShape EntityType="WinDbModel.LoginTrace" Width="1.5" PointX="1.5627790976142415" PointY="1.1091572200456434" />
+        <EntityTypeShape EntityType="WinDbModel.ScanAccount" Width="1.5" PointX="1.2776317416120469" PointY="22.478499035573797" />
+        <EntityTypeShape EntityType="WinDbModel.User" Width="1.5" PointX="7.6782920359067122" PointY="2.4538454722863832" />
+        <AssociationConnector Association="WinDbModel.FK_AccFail_ScanAccount" />
+        <AssociationConnector Association="WinDbModel.FK_AccScanInUse_ScanAccount" />
+        <AssociationConnector Association="WinDbModel.FK_AccScanInUse_User" />
+        <AssociationConnector Association="WinDbModel.FK_LoginTrace_User" />
+        <EntityTypeShape EntityType="WinDbModel.SystemConfig" Width="1.5" PointX="2.5078899778928094" PointY="9.0912956339732265" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
